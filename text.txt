@@ -1,0 +1,156 @@
+1. npm i http-status-codes -> for getting status code means i will give StatusCode.OK instead of status code
+    StatusCode.INTERNAL_SERVER_ERROR this is replace with 500
+
+    status code: { "100":"CONTINUE",
+    "101":"SWITCHING_PROTOCOLS",
+    "102":"PROCESSING",
+    "103":"EARLY_HINTS",
+    "200":"OK",
+    "201":"CREATED",
+    "202":"ACCEPTED",
+    "203":"NON_AUTHORITATIVE_INFORMATION",
+    "204":"NO_CONTENT",
+    "205":"RESET_CONTENT",
+    "206":"PARTIAL_CONTENT",
+    "207":"MULTI_STATUS",
+    "300":"MULTIPLE_CHOICES",
+    "301":"MOVED_PERMANENTLY",
+    "302":"MOVED_TEMPORARILY",
+    "303":"SEE_OTHER",
+    "304":"NOT_MODIFIED",
+    "305":"USE_PROXY","307":"TEMPORARY_REDIRECT",
+    "308":"PERMANENT_REDIRECT",
+    "400":"BAD_REQUEST",
+    "401":"UNAUTHORIZED",
+    "402":"PAYMENT_REQUIRED",
+    "403":"FORBIDDEN",
+    "404":"NOT_FOUND",
+    "405":"METHOD_NOT_ALLOWED","406":"NOT_ACCEPTABLE",
+    "407":"PROXY_AUTHENTICATION_REQUIRED",
+    "408":"REQUEST_TIMEOUT",
+    "409":"CONFLICT",
+    "410":"GONE",
+    "411":"LENGTH_REQUIRED","412":"PRECONDITION_FAILED",
+    "413":"REQUEST_TOO_LONG",
+    "414":"REQUEST_URI_TOO_LONG",
+    "415":"UNSUPPORTED_MEDIA_TYPE","416":"REQUESTED_RANGE_NOT_SATISFIABLE",
+    "417":"EXPECTATION_FAILED",
+    "418":"IM_A_TEAPOT",
+    "419":"INSUFFICIENT_SPACE_ON_RESOURCE","420":"METHOD_FAILURE",
+    "421":"MISDIRECTED_REQUEST",
+    "422":"UNPROCESSABLE_ENTITY",
+    "423":"LOCKED",
+    "424":"FAILED_DEPENDENCY","426":"UPGRADE_REQUIRED",
+    "428":"PRECONDITION_REQUIRED",
+    "429":"TOO_MANY_REQUESTS",
+    "431":"REQUEST_HEADER_FIELDS_TOO_LARGE","451":"UNAVAILABLE_FOR_LEGAL_REASONS",
+    "500":"INTERNAL_SERVER_ERROR",
+    "501":"NOT_IMPLEMENTED",
+    "502":"BAD_GATEWAY",
+    "503":"SERVICE_UNAVAILABLE",
+    "504":"GATEWAY_TIMEOUT",
+    "505":"HTTP_VERSION_NOT_SUPPORTED",
+    "507":"INSUFFICIENT_STORAGE",
+    "511":"NETWORK_AUTHENTICATION_REQUIRED",
+    "CONTINUE":100,
+    "SWITCHING_PROTOCOLS":101,
+    "PROCESSING":102,
+    "EARLY_HINTS":103,
+    "OK":200,
+    "CREATED":201,
+    "ACCEPTED":202,
+    "NON_AUTHORITATIVE_INFORMATION":203,
+    "NO_CONTENT":204,
+    "RESET_CONTENT":205,
+    "PARTIAL_CONTENT":206,
+    "MULTI_STATUS":207,
+    "MULTIPLE_CHOICES":300,
+    "MOVED_PERMANENTLY":301,
+    "MOVED_TEMPORARILY":302,
+    "SEE_OTHER":303,
+    "NOT_MODIFIED":304,
+    "USE_PROXY":305,"TEMPORARY_REDIRECT":307,
+    "PERMANENT_REDIRECT":308,
+    "BAD_REQUEST":400,
+    "UNAUTHORIZED":401,
+    "PAYMENT_REQUIRED":402,
+    "FORBIDDEN":403,"NOT_FOUND":404,
+    "METHOD_NOT_ALLOWED":405,
+    "NOT_ACCEPTABLE":406,
+    "PROXY_AUTHENTICATION_REQUIRED":407,
+    "REQUEST_TIMEOUT":408,
+    "CONFLICT":409,"GONE":410,
+    "LENGTH_REQUIRED":411,
+    "PRECONDITION_FAILED":412,
+    "REQUEST_TOO_LONG":413,
+    "REQUEST_URI_TOO_LONG":414,
+    "UNSUPPORTED_MEDIA_TYPE":415,
+    "REQUESTED_RANGE_NOT_SATISFIABLE":416,
+    "EXPECTATION_FAILED":417,
+    "IM_A_TEAPOT":418,
+    "INSUFFICIENT_SPACE_ON_RESOURCE":419,
+    "METHOD_FAILURE":420,
+    "MISDIRECTED_REQUEST":421,
+    "UNPROCESSABLE_ENTITY":422,
+    "LOCKED":423,
+    "FAILED_DEPENDENCY":424,
+    "UPGRADE_REQUIRED":426,
+    "PRECONDITION_REQUIRED":428,
+    "TOO_MANY_REQUESTS":429,
+    "REQUEST_HEADER_FIELDS_TOO_LARGE":431,
+    "UNAVAILABLE_FOR_LEGAL_REASONS":451,
+    "INTERNAL_SERVER_ERROR":500,
+    "NOT_IMPLEMENTED":501,
+    "BAD_GATEWAY":502,
+    "SERVICE_UNAVAILABLE":503,
+    "GATEWAY_TIMEOUT":504,
+    "HTTP_VERSION_NOT_SUPPORTED":505,
+    "INSUFFICIENT_STORAGE":507,
+    "NETWORK_AUTHENTICATION_REQUIRED":511
+    }
+
+2. node --watch -> same as nodemon
+
+3. npm i winston -> logger file means similar to console.log with extra features
+       yaha pe combined.log file ban gayi hai ya pe bhi result aa rha hai jo print karwa rhe hai 
+
+4. npm install --save sequelize  -> ORM  jaise mongoose hai 
+    npm install --save mysql2
+    npm install sequelize-cli   -> ye deta hai
+    sequelize db:migrate                         Run pending migrations
+    sequelize db:migrate:schema:timestamps:add  Update migration table to have timestamps
+    sequelize db:migrate:status                 List the status of all migrations
+    sequelize db:migrate:undo 
+
+5. npx sequelize init -> for initializes project so in src folder ja code hai
+         and CREATED config\config.json file not push in github
+
+         and models, migrations and folder seeders folder
+
+        migrations -> used to version control of db
+
+    npx sequelize db:create ye Database Flights created.
+
+    npx sequelize model:generate --name Airplane --attributes modelNumber:string,capacity:integer
+    model create and migration bhi ho jayega migration means jaise mongo me model bnate the fir kuchh add to us tipe ka aaise ye hai 
+
+    npx sequelize db:migrate  es se table create hoti hai 
+    npx sequelize db:migrate:undo  -> for delete table
+    npx sequelize db:migrate:undo:all  -> for delete table
+    
+
+
+    npx sequelize seed:generate --name add-airplanes
+    create seed file and seed file me ham data de skte hai ek 
+    npx sequelize db:seed:all
+    es commond se vo sara data add  kar skte hai
+    es se sari seed file run 
+    and i want to run a sspecific then 
+    npx sequelize db:seed --seed seed_fileName.js
+
+    npx sequelize db:seed:undo:all  se remove ho jayege
+
+
+    npx sequelize migration:generate --name update-city-airport-association 
+    ye commond ek file banayegi and us me ham add constraint banyege jo ki forigen key add karege 
+    npx sequelize db:migrate
