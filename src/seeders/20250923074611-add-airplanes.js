@@ -13,20 +13,20 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
      */
-    await queryInterface.bulkInsert("airplanes", [
-      {
-        modelNumber: "boeing99",
-        capacity: 900,
-        createdAt: new Date(),
-        updatedAt: new Date(),
-      },
-      {
-        modelNumber: "boeing777",
-        capacity: 700,
-        createdAt: new Date(),
-        updatedAt: new Date(),
-      },
-    ]);
+    // await queryInterface.bulkInsert("airplanes", [
+    //   {
+    //     modelNumber: "boeing99",
+    //     capacity: 900,
+    //     createdAt: new Date(),
+    //     updatedAt: new Date(),
+    //   },
+    //   {
+    //     modelNumber: "boeing777",
+    //     capacity: 700,
+    //     createdAt: new Date(),
+    //     updatedAt: new Date(),
+    //   },
+    // ]);
   },
 
   async down(queryInterface, Sequelize) {

@@ -5,10 +5,15 @@ const { FlightRepository } = require("../repositories");
 const AppError = require("../utils/errors/app.error");
 const flightRepository = new FlightRepository(); // make a object
 const { Op } = require('sequelize')
+const { compareTime } = require("../utils/helper/datetime.helpers");
 
 const createFlight = async (data) => {
     try {
         console.log("data", data);
+
+        if (compareTime(data.departureTime, data.arrivalTime)) {
+            throw new AppError("Arrival time must be greater than departure time", StatusCodes.BAD_REQUEST);
+        }
         const flight = await flightRepository.create(data);
         console.log("flight", flight)
         return flight;
@@ -151,11 +156,23 @@ const getAllFlightsByFilters = async (query) => {
     }
 }
 
+
+const updateSeats = async (data) => {
+    try {
+        const response = await flightRepository.updateRemainingSeats(data.flightId, data.seats, data.dec);
+        return response;
+    } catch (error) {
+        console.log(error);
+        throw new AppError('Cannot update data of the flight', StatusCodes.INTERNAL_SERVER_ERROR);
+    }
+}
+
 module.exports = {
     createFlight,
     getFlights,
     getFlight,
     destoryFlight,
     updateFlight,
-    getAllFlightsByFilters
+    getAllFlightsByFilters,
+    updateSeats
 };

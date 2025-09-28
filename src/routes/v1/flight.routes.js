@@ -15,4 +15,11 @@ router.get("/:id", FlightController.getFlight);
 router.delete("/:id", FlightController.destoryFlight);
 router.patch("/:id", FlightController.updateFlight);
 
+// /api/v1/flights/:id/seats PATCH
+router.patch(
+    '/:id/seats',
+    FlightMiddlewares.validateUpdateSeatsRequest,
+    FlightController.updateSeats
+);
+
 module.exports = router;

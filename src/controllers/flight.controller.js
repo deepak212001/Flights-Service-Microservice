@@ -130,11 +130,33 @@ const getAllFlightsByFilters = async (req, res) => {
     }
 }
 
+const updateSeats = async (req, res) => {
+    try {
+        console.log("seats", req.body);
+        const response = await FlightService.updateSeats({
+            flightId: req.params.id,
+            seats: req.body.seats,
+            dec: req.body.dec
+        });
+        SuccessResponse.data = response;
+        return res
+            .status(StatusCodes.OK)
+            .json(SuccessResponse);
+    } catch (error) {
+        ErrorResponse.error = error;
+        return res
+            .status(error.statusCode)
+            .json(ErrorResponse);
+    }
+}
+
+
 module.exports = {
     createFlight,
     getFlights,
     getFlight,
     destoryFlight,
     updateFlight,
-    getAllFlightsByFilters
+    getAllFlightsByFilters,
+    updateSeats
 };

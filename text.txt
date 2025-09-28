@@ -142,7 +142,7 @@
 
     npx sequelize seed:generate --name add-airplanes
     create seed file and seed file me ham data de skte hai ek 
-    npx sequelize db:seed:all
+    npx sequelize db:seed:allnpx sequelize db:seed:all
     es commond se vo sara data add  kar skte hai
     es se sari seed file run 
     and i want to run a sspecific then 
