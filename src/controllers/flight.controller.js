@@ -29,6 +29,7 @@ const createFlight = async (req, res) => {
 };
 
 const getFlights = async (req, res) => {
+    // console.log("req.originalUrl",req.originalUrl)
     try {
         const Flights = await FlightService.getFlights();
         SuccessResponse.data = Flights;
